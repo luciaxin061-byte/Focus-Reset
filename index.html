@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A quick focus reset for students who feel scattered, stuck, or drained."
+    />
+    <title>Focus Reset</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-state="home">
+    <main class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="Focus Reset home">
+          <span class="brand-mark" aria-hidden="true">FR</span>
+          <span>Focus Reset</span>
+        </a>
+        <span class="time-note">A 60-second pause</span>
+      </header>
+
+      <section class="choice-view" id="choice-view" aria-labelledby="choice-heading">
+        <div class="intro">
+          <p class="eyebrow">Check in</p>
+          <h1 id="choice-heading">Where is your focus right now?</h1>
+          <p class="intro-copy">
+            Choose the closest match. There is no wrong answer—just a small next step.
+          </p>
+        </div>
+
+        <div class="state-grid" aria-label="Focus states">
+          <button class="state-card" type="button" data-choice="scattered">
+            <span class="card-icon icon-scattered" aria-hidden="true">
+              <i class="character-face"><b></b><b></b></i>
+              <i></i><i></i>
+            </span>
+            <span class="card-number">01</span>
+            <span class="card-title">Scattered</span>
+            <span class="card-copy">My attention is jumping everywhere.</span>
+            <span class="card-action">Find one point <span aria-hidden="true">→</span></span>
+          </button>
+
+          <button class="state-card" type="button" data-choice="stuck">
+            <span class="card-icon icon-stuck" aria-hidden="true">
+              <i class="character-face"><b></b><b></b></i>
+              <i></i>
+            </span>
+            <span class="card-number">02</span>
+            <span class="card-title">Stuck</span>
+            <span class="card-copy">I cannot see how to begin.</span>
+            <span class="card-action">Make it smaller <span aria-hidden="true">→</span></span>
+          </button>
+
+          <button class="state-card" type="button" data-choice="drained">
+            <span class="card-icon icon-drained" aria-hidden="true">
+              <i class="character-face"><b></b><b></b></i>
+            </span>
+            <span class="card-number">03</span>
+            <span class="card-title">Drained</span>
+            <span class="card-copy">My energy feels low or heavy.</span>
+            <span class="card-action">Restore a little <span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="reset-view" id="reset-view" aria-live="polite" hidden>
+        <div class="reset-visual">
+          <div class="energy-reset" id="energy-reset" hidden>
+            <div class="gummy-progress" aria-label="Reset progress">
+              <span class="gummy-dot" data-step-dot="0"></span>
+              <span class="gummy-dot" data-step-dot="1"></span>
+              <span class="gummy-dot" data-step-dot="2"></span>
+            </div>
+
+            <div class="elastic-balls" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+
+            <div class="energy-step" id="energy-step" aria-live="polite">
+              <span class="energy-icon" id="energy-icon" aria-hidden="true"></span>
+              <span class="step-count" id="step-count"></span>
+              <h3 id="energy-title"></h3>
+              <p id="energy-instruction"></p>
+            </div>
+
+            <button class="energy-button" id="energy-button" type="button"></button>
+          </div>
+
+          <div
+            class="thought-gather"
+            id="thought-gather"
+            aria-label="Choose one floating thought to gather"
+            hidden
+          >
+            <div class="thought-center">
+              <span class="little-friend" aria-hidden="true"><i></i><i></i></span>
+              <p id="chosen-thought">Pick one thought</p>
+            </div>
+            <button class="thought-note note-one" type="button" data-thought="The next small task">
+              Next task
+            </button>
+            <button class="thought-note note-two candy" type="button" data-thought="A question to ask">
+              A question
+            </button>
+            <button class="thought-note note-three" type="button" data-thought="Something to remember">
+              Remember
+            </button>
+            <button class="thought-note note-four candy" type="button" data-thought="An idea for later">
+              Later idea
+            </button>
+            <button class="thought-note note-five" type="button" data-thought="The one thing that matters">
+              One thing
+            </button>
+          </div>
+
+          <div class="first-move-window" id="first-move-window" hidden>
+            <div class="window-frame">
+              <span class="window-cross window-cross-vertical" aria-hidden="true"></span>
+              <span class="window-cross window-cross-horizontal" aria-hidden="true"></span>
+              <div class="window-fog" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+
+              <form class="first-move-form" id="first-move-form">
+                <p class="window-kicker">A little opening</p>
+                <label for="first-move">What is your first move?</label>
+                <input
+                  id="first-move"
+                  name="first-move"
+                  type="text"
+                  maxlength="70"
+                  placeholder="Open my notes"
+                  autocomplete="off"
+                  required
+                />
+
+                <label for="focus-time">How long will you try?</label>
+                <select id="focus-time" name="focus-time" required>
+                  <option value="">Choose a time</option>
+                  <option value="5">5 minutes</option>
+                  <option value="10">10 minutes</option>
+                  <option value="15">15 minutes</option>
+                </select>
+
+                <button type="submit">Clear a little space</button>
+              </form>
+
+              <div class="plan-result" id="plan-result" tabindex="-1" aria-live="polite" hidden>
+                <span>Your first move</span>
+                <p>For the next <strong id="plan-time"></strong>: <b id="plan-action"></b></p>
+              </div>
+
+              <div class="plant-corner">
+                <div class="sprout" aria-hidden="true">
+                  <span class="leaf leaf-left"></span>
+                  <span class="leaf leaf-right"></span>
+                  <span class="stem"></span>
+                  <span class="soil"></span>
+                </div>
+                <p class="sprout-note">Just a little bit at a time will do.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reset-content">
+          <p class="eyebrow" id="reset-label">Your reset</p>
+          <h2 id="reset-title" tabindex="-1"></h2>
+          <p class="reset-intro" id="reset-intro"></p>
+
+          <div class="activity">
+            <span class="activity-time" id="activity-time"></span>
+            <p id="activity-text"></p>
+            <p class="activity-complete" id="activity-complete" hidden>
+              Gathered. Let this be the one thought you carry forward.
+            </p>
+          </div>
+
+          <button class="back-button" id="back-button" type="button">
+            <span aria-hidden="true">←</span> Choose another state
+          </button>
+        </div>
+      </section>
+
+      <footer>
+        <span>Pause. Notice. Begin again.</span>
+        <span>Made for study days.</span>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
