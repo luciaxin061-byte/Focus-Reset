@@ -1,4 +1,4 @@
-# Focus-Reset 
+# Focus-Reset: file:///Users/xinluxian/Documents/ChatGPT/5013/Focus-Reset/index.html
 The experience is designed for students who notice that they have lost focus but may not know what small action to take next. I wanted the interaction to feel immediate and nonjudgmental. I used three clearly labeled states instead of asking the user to type because selecting a state is faster and makes the experience easier to use during a study session.
 
 ## AI Tool Used
